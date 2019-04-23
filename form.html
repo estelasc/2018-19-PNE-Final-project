@@ -4,35 +4,94 @@
     <meta charset="utf-8">
     <title>FINAL PROJECT</title>
   </head>
-  <body>
-    <h2>List Species</h2>
- <form action="listSpecies" method="get">
-       View all species <input type="submit" value="SEND"/>
-    </form>
-    <br>
+  <body style="margin-left:20px">
+<h1>Final Practice 2019</h1>
+
+  <div style="width:500px;margin-left:20px;">
+      <h2>List Species</h2>
+
+        <form action="listSpecies" method="get">
+            <div>
+                View all species
+
+                <input type="submit" value="SEND"/>
+            </div>
+        </form>
+
+    <h2>Limit List Species</h2>
     <form action="listSpecies" method="get">
-      Limit:  <input type="text" name="limit">
+      Limit:
+        <div>
+        <input type="text" name="limit">
         <input type="submit" value="SEND"/>
+        </div>
     </form>
-
-
 
 
     <h2>karyotype form</h2>
 
     <form action="karyotype" method="get">
-      Specie:  <input type="text" name="specie">
-        <input type="submit" value="SEND"/>
+      Specie:
+        <div>
+            <input type="text" name="specie">
+            <input type="submit" value="SEND"/>
+        </div>
     </form>
 
 
     <h2>Chromosomes length form</h2>
 
     <form action="chromosomeLength" method="get">
-      Specie:  <input type="text" name="specie"><br>
-      Chromo: <input type="text" name="chromo">
+      Specie:
+        <div>
+        <input type="text" name="specie">
+        </div>
+      Chromo:
+        <div>
+        <input type="text" name="chromo">
         <input type="submit" value="SEND"/>
+        </div>
     </form>
 
+
+    <h2>Gene Sequence form</h2>
+
+    <form action="geneSeq" method="get">
+        Gene:
+        <div>
+        <input type="text" name="gene">
+        <input type="submit" value="SEND" />
+        </div>
+    </form>
+
+
+    <h2>Gene Info form</h2>
+
+    <form action="geneInfo" method="get">
+        Gene:
+        <div>
+            <input type="text" name="gene">
+            <input type="submit" value="SEND" />
+        </div>
+    </form>
+
+
+    <h2>Gene Calculations form</h2>
+
+    <form action="geneCal" method="get">
+        Gene: <input type="text" name="gene">
+        <input type="submit" value="SEND" />
+    </form>
+
+
+    <h2>Gene list form</h2>
+
+    <form action="geneList" method="get">
+        Chromo: <input type="text" name="chromo"><br>
+        Start: <input type="text" name="start"><br>
+        End: <input type="text" name="end">
+        <input type="submit" value="SEND" />
+    </form>
+    </div>
   </body>
 </html>
