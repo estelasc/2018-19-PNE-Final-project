@@ -1,0 +1,12 @@
+BASIC LEVEL:
+    The page that returns the list of species available in the database is:  GET info/species:
+        - Normal name: display_name
+        - latin name: name (lo que queremos)
+        - common name: common_name
+    The page that returns the name of all the chromosomes of a specie is: GET info/assembly/:species
+        - karyotype
+    The page that returns the length of a chromosome indicated of a given specie is: GET info/assembly/:species
+        - length
+
+MEDIUM LEVEL:
+http://rest.ensembl.org/xrefs/symbol/homo_sapiens/BRCA2?content-type=application/json
