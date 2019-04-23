@@ -167,7 +167,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         else:
             # Define the content-type header:
-            self.send_header('Content-Type', 'text/json')
+            self.send_header('Content-Type', 'application/json')
 
         self.send_header('Content-Length', len(str.encode(contents)))
 
