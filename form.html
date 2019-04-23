@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>FINAL PROJECT</title>
   </head>
-  <body style="margin-left:20px">
+  <body style="margin-left:50px">
 <h1>Final Practice 2019</h1>
 
   <div style="width:500px;margin-left:20px;">
@@ -78,19 +78,31 @@
 
     <h2>Gene Calculations form</h2>
 
-    <form action="geneCal" method="get">
-        Gene: <input type="text" name="gene">
-        <input type="submit" value="SEND" />
+    <form action="geneCalc" method="get">
+        Gene:
+        <div>
+            <input type="text" name="gene">
+            <input type="submit" value="SEND" />
+            </div>
     </form>
 
 
     <h2>Gene list form</h2>
 
     <form action="geneList" method="get">
-        Chromo: <input type="text" name="chromo"><br>
-        Start: <input type="text" name="start"><br>
-        End: <input type="text" name="end">
+        Chromo:
+        <div>
+            <input type="text" name="chromo"><br>
+            </div>
+        Start:
+        <div>
+        <input type="text" name="start"><br>
+            </div>
+        End:
+        <div>
+            <input type="text" name="end">
         <input type="submit" value="SEND" />
+            </div>
     </form>
     </div>
   </body>
