@@ -24,9 +24,10 @@ print('8. Exit.')
 
 
 
+
 while True:
     try:
-        option = int(input('--Type one of the available options of the MENU: '))
+        option = int(input('\n--Type one of the available options of the MENU: '))
         if option < 0 or option > 9:
             print('The option requested is not available.')
         else:
@@ -42,95 +43,95 @@ while True:
                     data1 = r1.read().decode("utf-8")
                     listSpecies = json.loads(data1)
                     if not listSpecies.get("ErrorDescription"):
-                        print("result: " + str(listSpecies['Species']))
+                        print("RESULT:\n" + ', '.join(listSpecies['Species']) + '.')
                         break
                     else:
                         print(listSpecies['ErrorDescription'])
 
             elif option == 2:
                 while True:
-                    specie = input('Introduce a specie: ')
+                    specie = input('-Introduce a specie: ')
                     conn.request('GET', "/karyotype?specie=" + specie + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     Chromosomes = json.loads(data1)
                     if not Chromosomes.get("ErrorDescription"):
-                        print("result: " + str(Chromosomes['Chromosomes']))
+                        print("RESULT:\n" + ', '.join(Chromosomes['Chromosomes']) + '.')
                         break
                     else:
                         print(Chromosomes['ErrorDescription'])
 
             elif option == 3:
                 while True:
-                    specie = input('Introduce a specie: ')
-                    chromo = input('Introduce a chromosome available for the specie introduced: ')
+                    specie = input('-Introduce a specie: ')
+                    chromo = input('-Introduce a chromosome available for the specie introduced: ')
                     conn.request("GET", "/chromosomeLength?specie=" + specie + "&chromo=" + chromo + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     length_chromo = json.loads(data1)
                     if not length_chromo.get("ErrorDescription"):
-                        print("result: " + str(length_chromo["Length"]))
+                        print("RESULT:\n" + str(length_chromo["Length"]))
                         break
                     else:
                         print(length_chromo['ErrorDescription'])
 
             elif option == 4:
                 while True:
-                    gene = input('Introduce a human gene: ')
+                    gene = input('-Introduce a human gene: ')
                     conn.request("GET", "/geneSeq?gene=" + gene + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     seq_gene = json.loads(data1)
                     if not seq_gene.get("ErrorDescription"):
-                        print("result: " + seq_gene["Sequence"])
+                        print("RESULT:\n" + seq_gene["Sequence"])
                         break
                     else:
                         print(seq_gene['ErrorDescription'])
 
             elif option == 5:
                 while True:
-                    gene = input('Introduce a human gene: ')
+                    gene = input('-Introduce a human gene: ')
                     conn.request("GET", "/geneInfo?gene=" + gene + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     gene_data = json.loads(data1)
                     if not gene_data.get("ErrorDescription"):
-                        print("Result: " + "Start: " + str(gene_data["Start"]) + " End: " + str(gene_data["End"]) +
-                                " Length: " + str(gene_data["Length"]) + " Id: " + gene_data["Id"] +
-                                " Chromosome: " + gene_data["Chromosome"])
+                        print("Start: " + str(gene_data["Start"]) + "\nEnd: " + str(gene_data["End"]) +
+                                "\nLength: " + str(gene_data["Length"]) + "\nId: " + gene_data["Id"] +
+                                "\nChromosome: " + gene_data["Chromosome"])
                         break
                     else:
                         print(gene_data['ErrorDescription'])
 
             elif option == 6:
                 while True:
-                    gene = input('Introduce a human gene: ')
-                    conn.request("GET", "/geneCal?gene=" + gene + "&json=1")
+                    gene = input('-Introduce a human gene: ')
+                    conn.request("GET", "/geneCalc?gene=" + gene + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     calc_gene = json.loads(data1)
                     if not calc_gene.get("ErrorDescription"):
-                        print("Result: " + "Number of As: " + str(calc_gene["LengthA"]) +
-                                " Number of Cs: " + str(calc_gene["LengthC"]) +
-                                " Number of G: " + str(calc_gene["LengthG"]) + " Number of T: " +
-                                str(calc_gene["LengthT"]) + " Perc of A: " + str(calc_gene["PercA"]) +
-                                " Perc of Cs: " + str(calc_gene["PercC"]) +
-                                " perc of G: " + str(calc_gene["PercG"]) + " Perc of T: " + str(calc_gene["PercT"]))
+                        print("Number of As: " + str(calc_gene["LengthA"]) +
+                                "\nNumber of Cs: " + str(calc_gene["LengthC"]) +
+                                "\nNumber of G: " + str(calc_gene["LengthG"]) + "\nNumber of T: " +
+                                str(calc_gene["LengthT"]) + "\nPerc of A: " + str(calc_gene["PercA"]) +
+                                "\nPerc of Cs: " + str(calc_gene["PercC"]) +
+                                "\nperc of G: " + str(calc_gene["PercG"]) + "\nPerc of T: " + str(calc_gene["PercT"]))
                         break
                     else:
                         print(calc_gene['ErrorDescription'])
 
             elif option == 7:
                 while True:
-                    chromo = input('Introduce a human chromosome: ')
-                    start = input('Introduce the start position: ')
-                    end = input('Introduce the end position: ')
+                    chromo = input('-Introduce a human chromosome: ')
+                    start = input('-Introduce the start position: ')
+                    end = input('-Introduce the end position: ')
                     conn.request("GET", "/geneList?chromo=" + chromo + "&start=" + start + "&end=" + end + "&json=1")
                     r1 = conn.getresponse()
                     data1 = r1.read().decode("utf-8")
                     gene_names = json.loads(data1)
                     if not gene_names.get("ErrorDescription"):
-                        print("Result: " + str(gene_names["Genes"]))
+                        print("RESULT:\n" + ', '.join(gene_names["Genes"]))
                         break
                     else:
                         print(gene_names['ErrorDescription'])
@@ -138,7 +139,12 @@ while True:
             elif option == 8:
                 break
 
+    except KeyboardInterrupt:
+        print('Client stopped by the user')
+        break
     except ValueError:
         print('The option introduced is not an integer.')
+    except http.client.HTTPException:
+        print("An error with the connection with the Ensembl server has been produced")
     except:
         print("An error has been produced")
