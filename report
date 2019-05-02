@@ -1,12 +1,2371 @@
-BASIC LEVEL:
-    The page that returns the list of species available in the database is:  GET info/species:
-        - Normal name: display_name
-        - latin name: name (lo que queremos)
-        - common name: common_name
-    The page that returns the name of all the chromosomes of a specie is: GET info/assembly/:species
-        - karyotype
-    The page that returns the length of a chromosome indicated of a given specie is: GET info/assembly/:species
-        - length
+---------------------------------------------------TEST REPORT----------------------------------------------------------
+ESTELA SÁNCHEZ CARBALLO, FINAL PROJECT.
 
-MEDIUM LEVEL:
-http://rest.ensembl.org/xrefs/symbol/homo_sapiens/BRCA2?content-type=application/json
+*BASIC LEVEL (Without json=1) AND ADVANCED LEVEL (With json=1)*
+
+1)
+
+ENDPOINT: /listSpecies
+
+PARAMETERS: limit (optional)
+
+PURPOSE:
+    - Without the parameter limit: List the name of all species available in the database.
+    - With the parameter limit specified (including when the user click send in the second form, but leave the space
+    where the parameter must be specified empty): List the name of 'limit' species available in the database.
+
+ENSEMBL REST API ENDPOINT: GET info/species
+
+PROVES:
+    - Clicking send in the first form:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies
+            With json=1
+                http://localhost:8000/listSpecies?json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>All species available in the database:<br> ficedula_albicollis, castor_canadensis, ciona_intestinalis, pogona_vitticeps, manacus_vitellinus, mus_spicilegus, zonotrichia_albicollis, dipodomys_ordii, nomascus_leucogenys, mus_musculus_fvbnj, fundulus_heteroclitus, mus_spretus, poecilia_reticulata, amphiprion_ocellaris, meriones_unguiculatus, saccharomyces_cerevisiae, paramormyrops_kingsleyae, jaculus_jaculus, mus_musculus_c3hhej, amphiprion_percula, erinaceus_europaeus, phascolarctos_cinereus, acanthochromis_polyacanthus, lepidothrix_coronata, neovison_vison, cavia_porcellus, equus_caballus, dasypus_novemcinctus, haplochromis_burtoni, macaca_fascicularis, coturnix_japonica, melopsittacus_undulatus, heterocephalus_glaber_male, aotus_nancymaae, ursus_maritimus, prolemur_simus, poecilia_latipinna, kryptolebias_marmoratus, apteryx_haastii, salvator_merianae, propithecus_coquereli, equus_asinus_asinus, cavia_aperea, anas_platyrhynchos_platyrhynchos, danio_rerio, peromyscus_maniculatus_bairdii, serinus_canaria, mesocricetus_auratus, ictalurus_punctatus, gambusia_affinis, monopterus_albus, lonchura_striata_domestica, felis_catus, ornithorhynchus_anatinus, apteryx_owenii, sphenodon_punctatus, poecilia_mexicana, drosophila_melanogaster, sarcophilus_harrisii, maylandia_zebra, mus_musculus_wsbeij, labrus_bergylta, parus_major, numida_meleagris, petromyzon_marinus, lepisosteus_oculatus, xiphophorus_couchianus, nannospalax_galili, ochotona_princeps, choloepus_hoffmanni, pan_troglodytes, saimiri_boliviensis_boliviensis, mustela_putorius_furo, gopherus_agassizii, urocitellus_parryii, mus_musculus_pwkphj, oryzias_latipes, pteropus_vampyrus, chelonoidis_abingdonii, rhinopithecus_bieti, astyanax_mexicanus, neolamprologus_brichardi, mus_musculus_casteij, echinops_telfairi, taeniopygia_guttata, loxodonta_africana, cebus_capucinus, anolis_carolinensis, ailuropoda_melanoleuca, spermophilus_dauricus, sus_scrofa, mus_musculus, mus_musculus_nzohlltj, calidris_pygmaea, notamacropus_eugenii, hippocampus_comes, bos_taurus, bison_bison_bison, mus_musculus_aj, oryzias_latipes_hsok, pan_paniscus, gorilla_gorilla, dromaius_novaehollandiae, apteryx_rowi, canis_familiaris, nothoprocta_perdicaria, cyprinodon_variegatus, cricetulus_griseus_picr, vicugna_pacos, cyanistes_caeruleus, mastacembelus_armatus, macaca_nemestrina, mus_caroli, colobus_angolensis_palliatus, ovis_aries, mandrillus_leucophaeus, astatotilapia_calliptera, oryzias_latipes_hni, gadus_morhua, eptatretus_burgeri, carlito_syrichta, oryzias_melastigma, cercocebus_atys, gasterosteus_aculeatus, poecilia_formosa, mus_musculus_dba2j, mus_musculus_c57bl6nj, junco_hyemalis, cricetulus_griseus_chok1gshd, xenopus_tropicalis, canis_lupus_dingo, tursiops_truncatus, piliocolobus_tephrosceles, pygocentrus_nattereri, microcebus_murinus, amphilophus_citrinellus, caenorhabditis_elegans, tetraodon_nigroviridis, pundamilia_nyererei, xiphophorus_maculatus, mus_pahari, cricetulus_griseus_crigri, chinchilla_lanigera, procavia_capensis, mus_musculus_balbcj, heterocephalus_glaber_female, calidris_pugnax, chlorocebus_sabaeus, capra_hircus, otolemur_garnettii, latimeria_chalumnae, anser_brachyrhynchus, macaca_mulatta, callithrix_jacchus, scophthalmus_maximus, periophthalmus_magnuspinnatus, pelodiscus_sinensis, panthera_pardus, octodon_degus, anabas_testudineus, cynoglossus_semilaevis, notechis_scutatus, mus_musculus_cbaj, oreochromis_niloticus, theropithecus_gelada, microtus_ochrogaster, takifugu_rubripes, crocodylus_porosus, oryctolagus_cuniculus, bos_mutus, vulpes_vulpes, stegastes_partitus, sorex_araneus, mus_musculus_akrj, seriola_dumerili, gallus_gallus, mus_musculus_nodshiltj, chrysemys_picta_bellii, papio_anubis, marmota_marmota_marmota, pongo_abelii, scleropages_formosus, ictidomys_tridecemlineatus, ciona_savignyi, rhinopithecus_roxellana, esox_lucius, meleagris_gallopavo, mus_musculus_lpj, fukomys_damarensis, panthera_tigris_altaica, seriola_lalandi_dorsalis, mola_mola, ursus_americanus, tupaia_belangeri, monodelphis_domestica, rattus_norvegicus, mus_musculus_129s1svimj, homo_sapiens, myotis_lucifugus.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Species": [
+                        "mus_musculus",
+                        "homo_sapiens",
+                        "cavia_porcellus",
+                        "mus_musculus_cbaj",
+                        "amphilophus_citrinellus",
+                        "anolis_carolinensis",
+                        "cebus_capucinus",
+                        "labrus_bergylta",
+                        "panthera_pardus",
+                        "takifugu_rubripes",
+                        "rhinopithecus_bieti",
+                        "mastacembelus_armatus",
+                        "lepidothrix_coronata",
+                        "fukomys_damarensis",
+                        "monodelphis_domestica",
+                        "equus_asinus_asinus",
+                        "xiphophorus_maculatus",
+                        "apteryx_owenii",
+                        "calidris_pugnax",
+                        "gasterosteus_aculeatus",
+                        "cricetulus_griseus_picr",
+                        "mus_spicilegus",
+                        "oryzias_melastigma",
+                        "nannospalax_galili",
+                        "chelonoidis_abingdonii",
+                        "acanthochromis_polyacanthus",
+                        "scleropages_formosus",
+                        "sarcophilus_harrisii",
+                        "gallus_gallus",
+                        "latimeria_chalumnae",
+                        "numida_meleagris",
+                        "mus_musculus_aj",
+                        "poecilia_latipinna",
+                        "phascolarctos_cinereus",
+                        "mus_musculus_fvbnj",
+                        "cricetulus_griseus_chok1gshd",
+                        "mus_musculus_lpj",
+                        "heterocephalus_glaber_female",
+                        "calidris_pygmaea",
+                        "anas_platyrhynchos_platyrhynchos",
+                        "saimiri_boliviensis_boliviensis",
+                        "lonchura_striata_domestica",
+                        "callithrix_jacchus",
+                        "ovis_aries",
+                        "papio_anubis",
+                        "macaca_fascicularis",
+                        "notechis_scutatus",
+                        "capra_hircus",
+                        "fundulus_heteroclitus",
+                        "ursus_americanus",
+                        "mus_musculus_nzohlltj",
+                        "notamacropus_eugenii",
+                        "tursiops_truncatus",
+                        "gambusia_affinis",
+                        "felis_catus",
+                        "pan_paniscus",
+                        "nomascus_leucogenys",
+                        "chlorocebus_sabaeus",
+                        "bos_taurus",
+                        "amphiprion_ocellaris",
+                        "mus_pahari",
+                        "coturnix_japonica",
+                        "carlito_syrichta",
+                        "apteryx_haastii",
+                        "macaca_nemestrina",
+                        "sphenodon_punctatus",
+                        "anser_brachyrhynchus",
+                        "anabas_testudineus",
+                        "lepisosteus_oculatus",
+                        "rhinopithecus_roxellana",
+                        "spermophilus_dauricus",
+                        "poecilia_formosa",
+                        "scophthalmus_maximus",
+                        "mus_spretus",
+                        "petromyzon_marinus",
+                        "xenopus_tropicalis",
+                        "gopherus_agassizii",
+                        "bison_bison_bison",
+                        "mus_musculus_129s1svimj",
+                        "ictalurus_punctatus",
+                        "octodon_degus",
+                        "colobus_angolensis_palliatus",
+                        "manacus_vitellinus",
+                        "astatotilapia_calliptera",
+                        "prolemur_simus",
+                        "mus_musculus_wsbeij",
+                        "dasypus_novemcinctus",
+                        "kryptolebias_marmoratus",
+                        "mus_musculus_dba2j",
+                        "urocitellus_parryii",
+                        "gorilla_gorilla",
+                        "microcebus_murinus",
+                        "mandrillus_leucophaeus",
+                        "pogona_vitticeps",
+                        "neovison_vison",
+                        "parus_major",
+                        "macaca_mulatta",
+                        "ornithorhynchus_anatinus",
+                        "oryzias_latipes_hni",
+                        "eptatretus_burgeri",
+                        "canis_lupus_dingo",
+                        "danio_rerio",
+                        "mus_musculus_nodshiltj",
+                        "stegastes_partitus",
+                        "chinchilla_lanigera",
+                        "mus_musculus_c57bl6nj",
+                        "astyanax_mexicanus",
+                        "ictidomys_tridecemlineatus",
+                        "vicugna_pacos",
+                        "crocodylus_porosus",
+                        "zonotrichia_albicollis",
+                        "amphiprion_percula",
+                        "panthera_tigris_altaica",
+                        "meleagris_gallopavo",
+                        "piliocolobus_tephrosceles",
+                        "marmota_marmota_marmota",
+                        "serinus_canaria",
+                        "apteryx_rowi",
+                        "salvator_merianae",
+                        "choloepus_hoffmanni",
+                        "mus_caroli",
+                        "sorex_araneus",
+                        "taeniopygia_guttata",
+                        "theropithecus_gelada",
+                        "hippocampus_comes",
+                        "cavia_aperea",
+                        "periophthalmus_magnuspinnatus",
+                        "aotus_nancymaae",
+                        "myotis_lucifugus",
+                        "sus_scrofa",
+                        "propithecus_coquereli",
+                        "drosophila_melanogaster",
+                        "pundamilia_nyererei",
+                        "echinops_telfairi",
+                        "junco_hyemalis",
+                        "vulpes_vulpes",
+                        "pan_troglodytes",
+                        "cricetulus_griseus_crigri",
+                        "seriola_dumerili",
+                        "erinaceus_europaeus",
+                        "loxodonta_africana",
+                        "neolamprologus_brichardi",
+                        "pelodiscus_sinensis",
+                        "microtus_ochrogaster",
+                        "mola_mola",
+                        "ursus_maritimus",
+                        "dromaius_novaehollandiae",
+                        "oryctolagus_cuniculus",
+                        "xiphophorus_couchianus",
+                        "cyprinodon_variegatus",
+                        "ciona_intestinalis",
+                        "pygocentrus_nattereri",
+                        "esox_lucius",
+                        "ochotona_princeps",
+                        "mustela_putorius_furo",
+                        "ciona_savignyi",
+                        "meriones_unguiculatus",
+                        "paramormyrops_kingsleyae",
+                        "jaculus_jaculus",
+                        "dipodomys_ordii",
+                        "cercocebus_atys",
+                        "oreochromis_niloticus",
+                        "pongo_abelii",
+                        "chrysemys_picta_bellii",
+                        "maylandia_zebra",
+                        "equus_caballus",
+                        "mesocricetus_auratus",
+                        "pteropus_vampyrus",
+                        "seriola_lalandi_dorsalis",
+                        "cyanistes_caeruleus",
+                        "mus_musculus_pwkphj",
+                        "gadus_morhua",
+                        "haplochromis_burtoni",
+                        "saccharomyces_cerevisiae",
+                        "cynoglossus_semilaevis",
+                        "canis_familiaris",
+                        "monopterus_albus",
+                        "ailuropoda_melanoleuca",
+                        "castor_canadensis",
+                        "melopsittacus_undulatus",
+                        "peromyscus_maniculatus_bairdii",
+                        "ficedula_albicollis",
+                        "bos_mutus",
+                        "mus_musculus_balbcj",
+                        "mus_musculus_casteij",
+                        "rattus_norvegicus",
+                        "otolemur_garnettii",
+                        "heterocephalus_glaber_male",
+                        "caenorhabditis_elegans",
+                        "poecilia_reticulata",
+                        "oryzias_latipes_hsok",
+                        "tetraodon_nigroviridis",
+                        "nothoprocta_perdicaria",
+                        "tupaia_belangeri",
+                        "mus_musculus_c3hhej",
+                        "poecilia_mexicana",
+                        "oryzias_latipes",
+                        "procavia_capensis",
+                        "mus_musculus_akrj"
+                    ]
+                }
+
+    - Clicking send in the first form without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies
+            With json=1
+                http://localhost:8000/listSpecies&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sendind a negative number as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=-3
+            With json=1
+                http://localhost:8000/listSpecies?limit=-3&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The limit introduced is not valid.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The limit introduced is not valid."
+                }
+
+
+    - Sending 0 as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=0
+            With json=1
+                http://localhost:8000/listSpecies?limit=0&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>0 species available in the database:<br> .</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Species": []
+                }
+
+
+    - Sending a valid limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=23
+            With json=1
+                http://localhost:8000/listSpecies?limit=23&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>23 species available in the database:<br> mesocricetus_auratus, homo_sapiens, monodelphis_domestica, amphiprion_percula, gadus_morhua, procavia_capensis, dasypus_novemcinctus, mola_mola, mus_musculus_c57bl6nj, ursus_maritimus, ornithorhynchus_anatinus, pteropus_vampyrus, scophthalmus_maximus, echinops_telfairi, aotus_nancymaae, marmota_marmota_marmota, urocitellus_parryii, xiphophorus_maculatus, oryzias_latipes_hsok, labrus_bergylta, esox_lucius, petromyzon_marinus, anabas_testudineus.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Species": [
+                        "mus_musculus",
+                        "homo_sapiens",
+                        "cavia_porcellus",
+                        "mus_musculus_cbaj",
+                        "amphilophus_citrinellus",
+                        "anolis_carolinensis",
+                        "cebus_capucinus",
+                        "labrus_bergylta",
+                        "panthera_pardus",
+                        "takifugu_rubripes",
+                        "rhinopithecus_bieti",
+                        "mastacembelus_armatus",
+                        "lepidothrix_coronata",
+                        "fukomys_damarensis",
+                        "monodelphis_domestica",
+                        "equus_asinus_asinus",
+                        "xiphophorus_maculatus",
+                        "apteryx_owenii",
+                        "calidris_pugnax",
+                        "gasterosteus_aculeatus",
+                        "cricetulus_griseus_picr",
+                        "mus_spicilegus",
+                        "oryzias_melastigma"
+                    ]
+                }
+
+
+    - Sending a limit without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=45
+            With json=1
+                http://localhost:8000/listSpecies?limit=45&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending the maximum number available in the database as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=199
+            With json=1
+                http://localhost:8000/listSpecies?limit=199&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>199 species available in the database:<br> mus_musculus, homo_sapiens, cavia_porcellus, mus_musculus_cbaj, amphilophus_citrinellus, anolis_carolinensis, cebus_capucinus, labrus_bergylta, panthera_pardus, takifugu_rubripes, rhinopithecus_bieti, mastacembelus_armatus, lepidothrix_coronata, fukomys_damarensis, monodelphis_domestica, equus_asinus_asinus, xiphophorus_maculatus, apteryx_owenii, calidris_pugnax, gasterosteus_aculeatus, cricetulus_griseus_picr, mus_spicilegus, oryzias_melastigma, nannospalax_galili, chelonoidis_abingdonii, acanthochromis_polyacanthus, scleropages_formosus, sarcophilus_harrisii, gallus_gallus, latimeria_chalumnae, numida_meleagris, mus_musculus_aj, poecilia_latipinna, phascolarctos_cinereus, mus_musculus_fvbnj, cricetulus_griseus_chok1gshd, mus_musculus_lpj, heterocephalus_glaber_female, calidris_pygmaea, anas_platyrhynchos_platyrhynchos, saimiri_boliviensis_boliviensis, lonchura_striata_domestica, callithrix_jacchus, ovis_aries, papio_anubis, macaca_fascicularis, notechis_scutatus, capra_hircus, fundulus_heteroclitus, ursus_americanus, mus_musculus_nzohlltj, notamacropus_eugenii, tursiops_truncatus, gambusia_affinis, felis_catus, pan_paniscus, nomascus_leucogenys, chlorocebus_sabaeus, bos_taurus, amphiprion_ocellaris, mus_pahari, coturnix_japonica, carlito_syrichta, apteryx_haastii, macaca_nemestrina, sphenodon_punctatus, anser_brachyrhynchus, anabas_testudineus, lepisosteus_oculatus, rhinopithecus_roxellana, spermophilus_dauricus, poecilia_formosa, scophthalmus_maximus, mus_spretus, petromyzon_marinus, xenopus_tropicalis, gopherus_agassizii, bison_bison_bison, mus_musculus_129s1svimj, ictalurus_punctatus, octodon_degus, colobus_angolensis_palliatus, manacus_vitellinus, astatotilapia_calliptera, prolemur_simus, mus_musculus_wsbeij, dasypus_novemcinctus, kryptolebias_marmoratus, mus_musculus_dba2j, urocitellus_parryii, gorilla_gorilla, microcebus_murinus, mandrillus_leucophaeus, pogona_vitticeps, neovison_vison, parus_major, macaca_mulatta, ornithorhynchus_anatinus, oryzias_latipes_hni, eptatretus_burgeri, canis_lupus_dingo, danio_rerio, mus_musculus_nodshiltj, stegastes_partitus, chinchilla_lanigera, mus_musculus_c57bl6nj, astyanax_mexicanus, ictidomys_tridecemlineatus, vicugna_pacos, crocodylus_porosus, zonotrichia_albicollis, amphiprion_percula, panthera_tigris_altaica, meleagris_gallopavo, piliocolobus_tephrosceles, marmota_marmota_marmota, serinus_canaria, apteryx_rowi, salvator_merianae, choloepus_hoffmanni, mus_caroli, sorex_araneus, taeniopygia_guttata, theropithecus_gelada, hippocampus_comes, cavia_aperea, periophthalmus_magnuspinnatus, aotus_nancymaae, myotis_lucifugus, sus_scrofa, propithecus_coquereli, drosophila_melanogaster, pundamilia_nyererei, echinops_telfairi, junco_hyemalis, vulpes_vulpes, pan_troglodytes, cricetulus_griseus_crigri, seriola_dumerili, erinaceus_europaeus, loxodonta_africana, neolamprologus_brichardi, pelodiscus_sinensis, microtus_ochrogaster, mola_mola, ursus_maritimus, dromaius_novaehollandiae, oryctolagus_cuniculus, xiphophorus_couchianus, cyprinodon_variegatus, ciona_intestinalis, pygocentrus_nattereri, esox_lucius, ochotona_princeps, mustela_putorius_furo, ciona_savignyi, meriones_unguiculatus, paramormyrops_kingsleyae, jaculus_jaculus, dipodomys_ordii, cercocebus_atys, oreochromis_niloticus, pongo_abelii, chrysemys_picta_bellii, maylandia_zebra, equus_caballus, mesocricetus_auratus, pteropus_vampyrus, seriola_lalandi_dorsalis, cyanistes_caeruleus, mus_musculus_pwkphj, gadus_morhua, haplochromis_burtoni, saccharomyces_cerevisiae, cynoglossus_semilaevis, canis_familiaris, monopterus_albus, ailuropoda_melanoleuca, castor_canadensis, melopsittacus_undulatus, peromyscus_maniculatus_bairdii, ficedula_albicollis, bos_mutus, mus_musculus_balbcj, mus_musculus_casteij, rattus_norvegicus, otolemur_garnettii, heterocephalus_glaber_male, caenorhabditis_elegans, poecilia_reticulata, oryzias_latipes_hsok, tetraodon_nigroviridis, nothoprocta_perdicaria, tupaia_belangeri, mus_musculus_c3hhej, poecilia_mexicana, oryzias_latipes, procavia_capensis, mus_musculus_akrj.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Species": [
+                        "mesocricetus_auratus",
+                        "homo_sapiens",
+                        "monodelphis_domestica",
+                        "amphiprion_percula",
+                        "gadus_morhua",
+                        "procavia_capensis",
+                        "dasypus_novemcinctus",
+                        "mola_mola",
+                        "mus_musculus_c57bl6nj",
+                        "ursus_maritimus",
+                        "ornithorhynchus_anatinus",
+                        "pteropus_vampyrus",
+                        "scophthalmus_maximus",
+                        "echinops_telfairi",
+                        "aotus_nancymaae",
+                        "marmota_marmota_marmota",
+                        "urocitellus_parryii",
+                        "xiphophorus_maculatus",
+                        "oryzias_latipes_hsok",
+                        "labrus_bergylta",
+                        "esox_lucius",
+                        "petromyzon_marinus",
+                        "anabas_testudineus",
+                        "cricetulus_griseus_crigri",
+                        "maylandia_zebra",
+                        "cricetulus_griseus_chok1gshd",
+                        "meriones_unguiculatus",
+                        "castor_canadensis",
+                        "apteryx_owenii",
+                        "neolamprologus_brichardi",
+                        "xiphophorus_couchianus",
+                        "mus_musculus_wsbeij",
+                        "cyanistes_caeruleus",
+                        "otolemur_garnettii",
+                        "mus_musculus_cbaj",
+                        "capra_hircus",
+                        "rhinopithecus_roxellana",
+                        "cynoglossus_semilaevis",
+                        "macaca_nemestrina",
+                        "poecilia_mexicana",
+                        "heterocephalus_glaber_female",
+                        "felis_catus",
+                        "numida_meleagris",
+                        "panthera_tigris_altaica",
+                        "panthera_pardus",
+                        "choloepus_hoffmanni",
+                        "spermophilus_dauricus",
+                        "poecilia_reticulata",
+                        "mus_pahari",
+                        "microcebus_murinus",
+                        "astatotilapia_calliptera",
+                        "vicugna_pacos",
+                        "mandrillus_leucophaeus",
+                        "junco_hyemalis",
+                        "notamacropus_eugenii",
+                        "bos_taurus",
+                        "manacus_vitellinus",
+                        "pan_troglodytes",
+                        "sarcophilus_harrisii",
+                        "microtus_ochrogaster",
+                        "calidris_pygmaea",
+                        "pygocentrus_nattereri",
+                        "callithrix_jacchus",
+                        "rattus_norvegicus",
+                        "ciona_savignyi",
+                        "jaculus_jaculus",
+                        "erinaceus_europaeus",
+                        "stegastes_partitus",
+                        "monopterus_albus",
+                        "hippocampus_comes",
+                        "ailuropoda_melanoleuca",
+                        "zonotrichia_albicollis",
+                        "gasterosteus_aculeatus",
+                        "gambusia_affinis",
+                        "mus_spretus",
+                        "sus_scrofa",
+                        "haplochromis_burtoni",
+                        "gopherus_agassizii",
+                        "pan_paniscus",
+                        "xenopus_tropicalis",
+                        "saccharomyces_cerevisiae",
+                        "mus_musculus_aj",
+                        "mus_musculus_129s1svimj",
+                        "seriola_dumerili",
+                        "dromaius_novaehollandiae",
+                        "astyanax_mexicanus",
+                        "ciona_intestinalis",
+                        "nomascus_leucogenys",
+                        "mus_spicilegus",
+                        "chelonoidis_abingdonii",
+                        "ictalurus_punctatus",
+                        "cebus_capucinus",
+                        "chinchilla_lanigera",
+                        "mus_musculus_nodshiltj",
+                        "colobus_angolensis_palliatus",
+                        "anolis_carolinensis",
+                        "lonchura_striata_domestica",
+                        "equus_caballus",
+                        "octodon_degus",
+                        "periophthalmus_magnuspinnatus",
+                        "notechis_scutatus",
+                        "drosophila_melanogaster",
+                        "salvator_merianae",
+                        "ictidomys_tridecemlineatus",
+                        "vulpes_vulpes",
+                        "cricetulus_griseus_picr",
+                        "rhinopithecus_bieti",
+                        "mus_musculus_c3hhej",
+                        "mus_musculus_fvbnj",
+                        "myotis_lucifugus",
+                        "latimeria_chalumnae",
+                        "oryzias_latipes_hni",
+                        "chrysemys_picta_bellii",
+                        "anas_platyrhynchos_platyrhynchos",
+                        "coturnix_japonica",
+                        "oryctolagus_cuniculus",
+                        "prolemur_simus",
+                        "apteryx_rowi",
+                        "bos_mutus",
+                        "mus_musculus_balbcj",
+                        "loxodonta_africana",
+                        "cyprinodon_variegatus",
+                        "amphilophus_citrinellus",
+                        "acanthochromis_polyacanthus",
+                        "oreochromis_niloticus",
+                        "sorex_araneus",
+                        "paramormyrops_kingsleyae",
+                        "ochotona_princeps",
+                        "phascolarctos_cinereus",
+                        "macaca_fascicularis",
+                        "scleropages_formosus",
+                        "tupaia_belangeri",
+                        "propithecus_coquereli",
+                        "anser_brachyrhynchus",
+                        "caenorhabditis_elegans",
+                        "mus_musculus_pwkphj",
+                        "tursiops_truncatus",
+                        "papio_anubis",
+                        "calidris_pugnax",
+                        "chlorocebus_sabaeus",
+                        "bison_bison_bison",
+                        "canis_familiaris",
+                        "mus_musculus_akrj",
+                        "serinus_canaria",
+                        "meleagris_gallopavo",
+                        "equus_asinus_asinus",
+                        "mus_caroli",
+                        "nothoprocta_perdicaria",
+                        "apteryx_haastii",
+                        "cercocebus_atys",
+                        "heterocephalus_glaber_male",
+                        "mus_musculus",
+                        "amphiprion_ocellaris",
+                        "parus_major",
+                        "fukomys_damarensis",
+                        "theropithecus_gelada",
+                        "ovis_aries",
+                        "seriola_lalandi_dorsalis",
+                        "pogona_vitticeps",
+                        "oryzias_melastigma",
+                        "mus_musculus_lpj",
+                        "gorilla_gorilla",
+                        "ursus_americanus",
+                        "oryzias_latipes",
+                        "piliocolobus_tephrosceles",
+                        "mus_musculus_dba2j",
+                        "cavia_aperea",
+                        "takifugu_rubripes",
+                        "danio_rerio",
+                        "lepidothrix_coronata",
+                        "eptatretus_burgeri",
+                        "taeniopygia_guttata",
+                        "cavia_porcellus",
+                        "pongo_abelii",
+                        "melopsittacus_undulatus",
+                        "carlito_syrichta",
+                        "fundulus_heteroclitus",
+                        "macaca_mulatta",
+                        "mus_musculus_casteij",
+                        "peromyscus_maniculatus_bairdii",
+                        "dipodomys_ordii",
+                        "canis_lupus_dingo",
+                        "mastacembelus_armatus",
+                        "pelodiscus_sinensis",
+                        "pundamilia_nyererei",
+                        "gallus_gallus",
+                        "ficedula_albicollis",
+                        "kryptolebias_marmoratus",
+                        "mus_musculus_nzohlltj",
+                        "lepisosteus_oculatus",
+                        "neovison_vison",
+                        "sphenodon_punctatus",
+                        "saimiri_boliviensis_boliviensis",
+                        "mustela_putorius_furo",
+                        "tetraodon_nigroviridis",
+                        "poecilia_formosa",
+                        "poecilia_latipinna",
+                        "nannospalax_galili",
+                        "crocodylus_porosus"
+                    ]
+                }
+
+
+    - Sending a greater number than the number of species available in the database as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=456
+            With json=1
+                http://localhost:8000/listSpecies?limit=456&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The limit introduced is not valid.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The limit introduced is not valid."
+                }
+
+
+    - Sending word instead of a number as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=hello
+            With json=1
+                http://localhost:8000/listSpecies?limit=hello&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: Limit must be an integer</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: Limit must be an integer"
+                }
+
+
+    - Sending nothing as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=
+            With json=1
+                http://localhost:8000/listSpecies?limit=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: Limit must be an integer</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: Limit must be an integer"
+                }
+
+
+    - Sending several number separated by spaces as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=2+3+4
+            With json=1
+                http://localhost:8000/listSpecies?limit=2+3+4&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: Limit must be an integer</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: Limit must be an integer"
+                }
+
+
+    - Sending several words as the limit:
+        LINK:
+            Without json=1
+                http://localhost:8000/listSpecies?limit=hello+world
+            With json=1
+                http://localhost:8000/listSpecies?limit=hello+world&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: Limit must be an integer</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: Limit must be an integer"
+                }
+
+
+
+
+
+2)
+
+ENDPOINT: /karyotype
+
+PARAMETERS: specie
+
+PURPOSE: Return the name of all the chromosomes of the specie introduced
+
+ENSEMBL REST API ENDPOINT: GET info/assembly/:species
+
+PROVES:
+    - Sending a valid specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=cat
+            With json=1
+                http://localhost:8000/karyotype?specie=cat&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>All the chromosomes of the specie cat:<br>A1, A2, A3, B1, B2, B3, B4, C1, C2, D1, D2, D3, D4, E1, E2, E3, F1, F2, X, MT.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Chromosomes": [
+                        "A1",
+                        "A2",
+                        "A3",
+                        "B1",
+                        "B2",
+                        "B3",
+                        "B4",
+                        "C1",
+                        "C2",
+                        "D1",
+                        "D2",
+                        "D3",
+                        "D4",
+                        "E1",
+                        "E2",
+                        "E3",
+                        "F1",
+                        "F2",
+                        "X",
+                        "MT"
+                    ]
+                }
+
+
+    - Sending a specie without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=pig
+            With json=1
+                http://localhost:8000/karyotype?specie=pig&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a valid specie of which the server has not this information:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=ferret
+            With json=1
+                http://localhost:8000/karyotype?specie=ferret&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>All the chromosomes of the specie ferret:<br>.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Chromosomes": []
+                }
+
+
+    - Sending a number as the specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=123456
+            With json=1
+                http://localhost:8000/karyotype?specie=123456&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not correct</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not correct"
+                }
+
+
+    - Sending random letters as the specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=jasvvdyr
+            With json=1
+                http://localhost:8000/karyotype?specie=jasvvdyr&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not correct</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not correct"
+                }
+
+
+    - Sending nothing as the specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=
+            With json=1
+                http://localhost:8000/karyotype?specie=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not correct</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not correct"
+                }
+
+
+    - Sending several words (name of real species or not) separated by spaces as the specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/karyotype?specie=cat+human
+            With json=1
+                http://localhost:8000/karyotype?specie=cat+human&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not correct</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not correct"
+                }
+
+
+
+
+
+3)
+
+ENDPOINT: /chromosomeLength
+
+PARAMETERS: specie, chromo
+
+PURPOSE: Return the name of the chromosome 'chromo' that belongs to the specie 'specie'
+
+ENSEMBL REST API ENDPOINT: GET info/assembly/:species
+
+PROVES:
+    - Sending a valid specie and a valid chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=dog&chromo=34
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=dog&chromo=34&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>The length of the chromosome 34 that belongs to the specie dog is: 42124431</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Length": 42124431
+                }
+
+
+    - Sending a specie and a chromo without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=human&chromo=6
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=human&chromo=6&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a valid specie but not valid chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=cat&chromo=3
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=cat&chromo=3&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The chromosome introduced is not valid.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The chromosome introduced is not valid."
+                }
+
+
+    - Sending a not valid specie:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=Estela&chromo=7
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=Estela&chromo=7&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not valid"
+                }
+
+
+    - Sending nothing as the specie, but something as the chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=&chromo=Y
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=&chromo=Y&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not valid"
+                }
+
+
+    - Sending nothing as the specie and nothing as the chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=&chromo=
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=&chromo=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not valid"
+                }
+
+
+    - Sending a valid specie but nothing as the chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=pig&chromo=
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=pig&chromo=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The chromosome introduced is not valid.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The chromosome introduced is not valid."
+                }
+
+
+    - Sending random letters and numbers as both specie and chromo:
+        LINK:
+            Without json=1
+                http://localhost:8000/chromosomeLength?specie=wh3tgbfy7b&chromo=3876tghjugf
+            With json=1
+                http://localhost:8000/chromosomeLength?specie=wh3tgbfy7b&chromo=3876tghjugf&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The specie introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The specie introduced is not valid"
+                }
+
+
+
+
+
+4)
+
+ENDPOINT: /
+
+PARAMETERS: None
+
+PURPOSE: Main endpoint. It returns an HTML page with all the forms.
+
+PROVES:
+    - Putting it in the browser:
+        LINK:
+            http://localhost:8000/
+        OUTPUT:
+            <!DOCTYPE html>
+            <html lang="en" dir="ltr">
+              <head>
+                <meta charset="utf-8">
+                <title>FINAL PROJECT</title>
+              </head>
+              <body style="margin-left:50px">
+            <h1>Final Project 2019</h1>
+
+              <div style="width:500px;margin-left:20px;">
+                  <h2>List Species</h2>
+
+                    <form action="listSpecies" method="get">
+                        <div>
+                            View all species
+
+                            <input type="submit" value="SEND"/>
+                        </div>
+                    </form>
+
+                <h2>Limit List Species</h2>
+                <form action="listSpecies" method="get">
+                  Limit:
+                    <div>
+                    <input type="text" name="limit">
+                    <input type="submit" value="SEND"/>
+                    </div>
+                </form>
+
+
+                <h2>karyotype form</h2>
+
+                <form action="karyotype" method="get">
+                  Specie:
+                    <div>
+                        <input type="text" name="specie">
+                        <input type="submit" value="SEND"/>
+                    </div>
+                </form>
+
+
+                <h2>Chromosomes length form</h2>
+
+                <form action="chromosomeLength" method="get">
+                  Specie:
+                    <div>
+                    <input type="text" name="specie">
+                    </div>
+                  Chromo:
+                    <div>
+                    <input type="text" name="chromo">
+                    <input type="submit" value="SEND"/>
+                    </div>
+                </form>
+
+
+                <h2>Gene Sequence form</h2>
+
+                <form action="geneSeq" method="get">
+                    Gene:
+                    <div>
+                    <input type="text" name="gene">
+                    <input type="submit" value="SEND" />
+                    </div>
+                </form>
+
+
+                <h2>Gene Info form</h2>
+
+                <form action="geneInfo" method="get">
+                    Gene:
+                    <div>
+                        <input type="text" name="gene">
+                        <input type="submit" value="SEND" />
+                    </div>
+                </form>
+
+
+                <h2>Gene Calculations form</h2>
+
+                <form action="geneCalc" method="get">
+                    Gene:
+                    <div>
+                        <input type="text" name="gene">
+                        <input type="submit" value="SEND" />
+                        </div>
+                </form>
+
+
+                <h2>Gene list form</h2>
+
+                <form action="geneList" method="get">
+                    Chromo:
+                    <div>
+                        <input type="text" name="chromo"><br>
+                        </div>
+                    Start:
+                    <div>
+                    <input type="text" name="start"><br>
+                        </div>
+                    End:
+                    <div>
+                        <input type="text" name="end">
+                    <input type="submit" value="SEND" />
+                        </div>
+                </form>
+                </div>
+              </body>
+            </html>
+
+
+    - Sending something different before it in the browser:
+        LINK:
+            https://www.google.com/search?client=ubuntu&channel=fs&q=localhost%3A8000j%2F&ie=utf-8&oe=utf-8
+        OUTPUT:
+            It search it in google.
+
+
+    - Sending something different after it in the browser:
+        LINK:
+            http://localhost:8000/f
+        OUTPUT:
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Error page</title>
+            </head>
+            <body>
+                <h1>Final Practice 2019</h1>
+
+                <h3 style="color:red">An Error has been produced ! </h3>
+
+                <a href="/">Main Page</a>
+            </body>
+            </html>
+
+
+
+
+
+*MEDIUM LEVEL (Without json=1) AND ADVANCED LEVEL (With json=1):
+
+1)
+
+ENDPOINT: /geneSeq
+
+PARAMETERS: gene
+
+PURPOSE: Return the sequence of the human gene 'gene'
+
+ENSEMBL REST API ENDPOINT: GET homology/symbol/homo_sapiens/:symbol (obtaining the id)
+ENSEMBL REST API ENDPOINT: GET sequence/id/:id (obtaining the sequence)
+
+PROVES:
+    - Sending a valid human gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneSeq?gene=frat2
+            With json=1
+                http://localhost:8000/geneSeq?gene=frat2&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>Sequence: AGGCGCGTGGCTCGAGTGCCTGGCGGGCTCCGGCTTCCGCGTCCGCCCCTGCTCCGGCTTCGCCCGCAGCTCCGCGCCCGCGGGCAACCAAGCCCCCAGCGAAGCCCGCACAGCTCCGGGTGCCAGGACGGGGGGCCATGCCGTGCCGGAGGGAGGAGGAAGAGGAAGCCGGCGAGGAGGCGGAGGGGGAGGAAGAGGAGGACGACAGCTTCCTCCTGCTGCAGCAGTCGGTGACGCTGGGCAGCTCGGGCGAGGTGGACCGGCTGGTGGCCCAGATCGGCGAGACGCTGCAGCTGGACGCGGCGCAGGACAGCCCGGCCTCGCCGTGCGCGCCCCCGGGGGTGCCGCTGCGGGCCCCGGGGCCCCTGGCTGCGGCGGTGCCGGCGGACAAGGCCCGGCCCCCGGCGGTGCCGCTGCTGCTGCCGCCCGCTTCGGCTGAGACGGTGGGCCCGGCGCCCTCTGGGGCCCTGCGCTGCGCCCTAGGGGACCGCGGCCGCGTGCGCGGACGCGCTGCGCCCTACTGCGTGGCGGAGGTCGCCGCAGGCCCCAGCGCGCTGCCGGGGCCGTGCCGGCGAGGATGGCTCAGGGACGCGGTCACCTCCCGCCGCTTGCAGCAGCGCCGATGGACCCAAGCCGGGGCACGCGCCGGCGACGACGACCCGCATCGGCTCCTCCAGCAGCTCGTGCTCTCGGGAAACCTCATCAAGGAAGCCGTGCGGAGACTCCAACGAGCCGTCGCCGCGGTTGCAGCCACGGGCCCCGCAAGCGCCCCTGGGCCCGGGGGAGGCCGCAGCGGACCTGACCGCATTGCCCTGCAGCCCTCAGGCTCCTTGCTCTGACGCAGGCCTCCTGGAGGAGGAAGTGGAGGCCGCTGCGTAGACCCAACAGCGTCCAGTTCCTACTAACTCTGAGCTGAAGCCGACGTCGCCAGCCTGGGAGCGACCACTTTGGCTGCGGGGAGGCGCGTGGGGAGAGATCTCAACCAGAGAAGTTACCAGCCGCGGCGAGGCCGTCGGAGAAAACTTAAGCGTGGAGAAATGTATGCGCCAGGGTGCTTCCGTGGGGCATGAGAATTTCCCGGGCCATCCAAGCCCAAGGACCTGGGATAAACTGGGAGAACTATGGCAGCTACTTGCATCGACTTGTACCTCACTTAGCCCTTGGGGGCGTCGTGAGCTTGGATTGTTTAAGGAGGGCTCAGGGGTAGGAATCGCGATGGCTTTATAACAATACTTGAAAACTAACGACACGCATACATTTTCTTATTTTCTGGTGGAGGAGCTTAGTAAGTGGTGCTACAATTGCTGTGCAAAGAAATTCCAGAGGGGAGAAGAATGTAAAAGTTTGGTGGTGGGTGGCTTGGCATTGCCCCTTTTTCCCACCGATTCGGTGGCTGGTGAAGGTGGGAGATGTGAACTCCAATTAAGGGACTGGAGAGAGGTGAAGAATTTTGCAGGTGGGAGATTTGGATTTGAATGTGGACTTGTAAATGACTTGACCTTGCCATCTGTGTTCAAGGTCACGGTTTGCTGTGGGGTTCCTGGGAGAGCTTACTCACCCCGGAGTCTTTTCTTTCTCTTGCTCCAAGAAGAGCCCTGTTGGTGCTTTACCACCGCTTGGAGTCTCCCGAGGACACAAACAGGCAGAGAGGGACGTGTAGGGAGAGTTCTTTCCTGTTTTCTGTGCTTTCCTTTTTACAGGACTCCCGGAAGGCCACTCATGGCCATGCCAGGAGCTTTCTCAGAAACAGTCATAAACGATCTCTTGAGTCTCTTTCTTGTCCTCCCAGCTGAGCTTTCTTATTCCACCCTTTCTGGTGTCTATAGGAATGCATGAGAGACCCTGGACGTTTTTCTGCTCTCTTCTGGCCCTCCATGGAGTCATGGGCCTCGGCCTCGGCGGCTCCTCACCCTCACAATTTATTTCCTCCTCCCGTGCCAGCCCTTCTTTTGTGTCTGAAACCGGTTTTAAAATGTGACTCTCCCAGAGAAGAAGCCGCTGGCTGTATGAAACTTGACGGCGCTTTTGTAAGGTGCCACCCCCAAACTTTAAGGTAGCTAAACCAATTTTTAAAAGATTCAATGGCTTGTTCATCCTCCAGATGTAGCTATTGATGTACACTTCGCAACGGAGTGTCTGAAATTGTGGTGGTCCTGATTTATAGGATTTCATAATTAAAATGTCTGCTGAATAAATTTGGCTTTTGTTTTGGA</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Sequence": "AGGCGCGTGGCTCGAGTGCCTGGCGGGCTCCGGCTTCCGCGTCCGCCCCTGCTCCGGCTTCGCCCGCAGCTCCGCGCCCGCGGGCAACCAAGCCCCCAGCGAAGCCCGCACAGCTCCGGGTGCCAGGACGGGGGGCCATGCCGTGCCGGAGGGAGGAGGAAGAGGAAGCCGGCGAGGAGGCGGAGGGGGAGGAAGAGGAGGACGACAGCTTCCTCCTGCTGCAGCAGTCGGTGACGCTGGGCAGCTCGGGCGAGGTGGACCGGCTGGTGGCCCAGATCGGCGAGACGCTGCAGCTGGACGCGGCGCAGGACAGCCCGGCCTCGCCGTGCGCGCCCCCGGGGGTGCCGCTGCGGGCCCCGGGGCCCCTGGCTGCGGCGGTGCCGGCGGACAAGGCCCGGCCCCCGGCGGTGCCGCTGCTGCTGCCGCCCGCTTCGGCTGAGACGGTGGGCCCGGCGCCCTCTGGGGCCCTGCGCTGCGCCCTAGGGGACCGCGGCCGCGTGCGCGGACGCGCTGCGCCCTACTGCGTGGCGGAGGTCGCCGCAGGCCCCAGCGCGCTGCCGGGGCCGTGCCGGCGAGGATGGCTCAGGGACGCGGTCACCTCCCGCCGCTTGCAGCAGCGCCGATGGACCCAAGCCGGGGCACGCGCCGGCGACGACGACCCGCATCGGCTCCTCCAGCAGCTCGTGCTCTCGGGAAACCTCATCAAGGAAGCCGTGCGGAGACTCCAACGAGCCGTCGCCGCGGTTGCAGCCACGGGCCCCGCAAGCGCCCCTGGGCCCGGGGGAGGCCGCAGCGGACCTGACCGCATTGCCCTGCAGCCCTCAGGCTCCTTGCTCTGACGCAGGCCTCCTGGAGGAGGAAGTGGAGGCCGCTGCGTAGACCCAACAGCGTCCAGTTCCTACTAACTCTGAGCTGAAGCCGACGTCGCCAGCCTGGGAGCGACCACTTTGGCTGCGGGGAGGCGCGTGGGGAGAGATCTCAACCAGAGAAGTTACCAGCCGCGGCGAGGCCGTCGGAGAAAACTTAAGCGTGGAGAAATGTATGCGCCAGGGTGCTTCCGTGGGGCATGAGAATTTCCCGGGCCATCCAAGCCCAAGGACCTGGGATAAACTGGGAGAACTATGGCAGCTACTTGCATCGACTTGTACCTCACTTAGCCCTTGGGGGCGTCGTGAGCTTGGATTGTTTAAGGAGGGCTCAGGGGTAGGAATCGCGATGGCTTTATAACAATACTTGAAAACTAACGACACGCATACATTTTCTTATTTTCTGGTGGAGGAGCTTAGTAAGTGGTGCTACAATTGCTGTGCAAAGAAATTCCAGAGGGGAGAAGAATGTAAAAGTTTGGTGGTGGGTGGCTTGGCATTGCCCCTTTTTCCCACCGATTCGGTGGCTGGTGAAGGTGGGAGATGTGAACTCCAATTAAGGGACTGGAGAGAGGTGAAGAATTTTGCAGGTGGGAGATTTGGATTTGAATGTGGACTTGTAAATGACTTGACCTTGCCATCTGTGTTCAAGGTCACGGTTTGCTGTGGGGTTCCTGGGAGAGCTTACTCACCCCGGAGTCTTTTCTTTCTCTTGCTCCAAGAAGAGCCCTGTTGGTGCTTTACCACCGCTTGGAGTCTCCCGAGGACACAAACAGGCAGAGAGGGACGTGTAGGGAGAGTTCTTTCCTGTTTTCTGTGCTTTCCTTTTTACAGGACTCCCGGAAGGCCACTCATGGCCATGCCAGGAGCTTTCTCAGAAACAGTCATAAACGATCTCTTGAGTCTCTTTCTTGTCCTCCCAGCTGAGCTTTCTTATTCCACCCTTTCTGGTGTCTATAGGAATGCATGAGAGACCCTGGACGTTTTTCTGCTCTCTTCTGGCCCTCCATGGAGTCATGGGCCTCGGCCTCGGCGGCTCCTCACCCTCACAATTTATTTCCTCCTCCCGTGCCAGCCCTTCTTTTGTGTCTGAAACCGGTTTTAAAATGTGACTCTCCCAGAGAAGAAGCCGCTGGCTGTATGAAACTTGACGGCGCTTTTGTAAGGTGCCACCCCCAAACTTTAAGGTAGCTAAACCAATTTTTAAAAGATTCAATGGCTTGTTCATCCTCCAGATGTAGCTATTGATGTACACTTCGCAACGGAGTGTCTGAAATTGTGGTGGTCCTGATTTATAGGATTTCATAATTAAAATGTCTGCTGAATAAATTTGGCTTTTGTTTTGGA"
+                }
+
+
+    - Sending a gene without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneSeq?gene=EST
+            With json=1
+                http://localhost:8000/geneSeq?gene=EST&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a not valid gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneSeq?gene=Estela
+            With json=1
+                http://localhost:8000/geneSeq?gene=Estela&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending nothing as the gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneSeq?gene=
+            With json=1
+                http://localhost:8000/geneSeq?gene=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending several genes (valid or not) separated by spaces:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneSeq?gene=Frat1+fra
+            With json=1
+                http://localhost:8000/geneSeq?gene=Frat1+fra&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+
+
+
+2)
+
+ENDPOINT: /geneInfo
+
+PARAMETERS: gene
+
+PURPOSE: Return the start and end position, the length, the id of the human gene 'gene' and the Chromosome to which 'gene' belongs.
+
+ENSEMBL REST API ENDPOINT: GET homology/symbol/homo_sapiens/:symbol (obtaining the id)
+ENSEMBL REST API ENDPOINT: GET overlap/id/:id (obtaining the info)
+
+PROVES:
+    - Sending a valid gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneInfo?gene=FRA
+            With json=1
+                http://localhost:8000/geneInfo?gene=FRA&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>Start position: 28904421<br> End position: 28936526<br>Chromosome to which it belongs: 16<br> Length: 32105<br> Id: ENSG00000177548.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Start": 28904421,
+                    "End": 28936526,
+                    "Length": 32105,
+                    "Id": "ENSG00000177548",
+                    "Chromosome": "16"
+                }
+
+
+    - Sending a gene without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneInfo?gene=ELA
+            With json=1
+                http://localhost:8000/geneInfo?gene=ELA&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a not valid gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneInfo?gene=hello
+            With json=1
+                http://localhost:8000/geneInfo?gene=hello&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending nothing as the gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneInfo?gene=
+            With json=1
+                http://localhost:8000/geneInfo?gene=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending several genes (valid or not) separated by spaces:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneInfo?gene=hgb+fra
+            With json=1
+                http://localhost:8000/geneInfo?gene=hgb+fra&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+
+
+
+3)
+
+ENDPOINT: /geneCalc
+
+PARAMETERS: gene
+
+PURPOSE: Return the total length and percentage of all the bases of the human gene 'gene'
+
+ENSEMBL REST API ENDPOINT: GET homology/symbol/homo_sapiens/:symbol (obtaining the id)
+ENSEMBL REST API ENDPOINT: GET sequence/id/:id (obtaining the sequence to analyze)
+
+PROVES:
+    - Sending a valid gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneCalc?gene=HGB
+            With json=1
+                http://localhost:8000/geneCalc?gene=HGB&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>Length of As: 5280.<br> Length of Cs: 6841.<br> Length of Gs: 6534.<br>Length of Ts: 5165.<br> Percentage of As: 22.2%<br> Percentage of Cs: 28.7%.<br> Percentage of Gs: 27.4%.<br> Percentage of Ts: 21.7%.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "LengthA": 5280,
+                    "LengthC": 6841,
+                    "LengthG": 6534,
+                    "LengthT": 5165,
+                    "PercA": 22.2,
+                    "PercC": 28.7,
+                    "PercG": 27.4,
+                    "PercT": 21.7
+                }
+
+
+    - Sending a gene without internet connection:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneCalc?gene=TGB
+            With json=1
+                http://localhost:8000/geneCalc?gene=TGB&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a not valid gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneCalc?gene=frat3
+            With json=1
+                http://localhost:8000/geneCalc?gene=frat3&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending nothing as the gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneCalc?gene=
+            With json=1
+                http://localhost:8000/geneCalc?gene=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+    - Sending several genes (valid or not) as the gene:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneCalc?gene=frat1+frat2
+            With json=1
+                http://localhost:8000/geneCalc?gene=frat1+frat2&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The gene introduced is not recognized as a human gene.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The gene introduced is not recognized as a human gene."
+                }
+
+
+
+
+
+4)
+
+ENDPOINT: /geneList
+
+PARAMETERS: chromo, start, end
+
+PURPOSE: Return a list of the genes located between 'start' and 'end' in the human chromosome 'chromo'
+
+ENSEMBL REST API ENDPOINTS: GET overlap/region/human/:region
+
+PROVES:
+    - Sending a valid chromo and a rage start,end where there are genes:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=4&start=12345&end=123456
+            With json=1
+                http://localhost:8000/geneList?chromo=4&start=12345&end=123456&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>The names of the genes located in the chromosome introduced from the start to end positions are:<br>BNIP3P41, ZNF595, AC253576.1</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "Genes": [
+                        "BNIP3P41",
+                        "ZNF595",
+                        "AC253576.1"
+                    ]
+                }
+
+
+    - Sending a chromo and a range start,end without internet connection:
+        LINK:
+            Without json=1:
+                http://localhost:8000/geneList?chromo=5&start=123456&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=5&start=123456&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>An error has been produced</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "An error has been produced"
+                }
+
+
+    - Sending a valid chromo and a rage start,end where there are no genes:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=17&start=1234&end=12345
+            With json=1
+                http://localhost:8000/geneList?chromo=17&start=1234&end=12345&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>Not genes located in that region.</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "Not genes located in that region."
+                }
+
+
+    - Sending a not valid chromo and a valid range start,end:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=67&start=12345&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=67&start=12345&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a not valid chromo, a not valid start position and a valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=99&start=hello+world&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=99&start=hello+world&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a not valid chromo, a not valid start position and a not valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=hello&start=my&end=name
+            With json=1
+                http://localhost:8000/geneList?chromo=hello&start=my&end=name&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a valid chromo, a not valid start position and a not valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=15&start=Estela&end=S%C3%A1nchez
+            With json=1
+                http://localhost:8000/geneList?chromo=15&start=Estela&end=S%C3%A1nchez&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a valid chromo, a valid start position and a not valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=12&start=123456&end=hello
+            With json=1
+                http://localhost:8000/geneList?chromo=12&start=123456&end=hello&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a valid chromo, a not valid start position and a valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=2&start=hello&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=2&start=hello&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a not valid chromo, a valid start position and a not valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=hi&start=1234567&end=hello
+            With json=1
+                http://localhost:8000/geneList?chromo=hi&start=1234567&end=hello&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending nothing as the chromo, an a valid range start,end:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=&start=123456&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=&start=123456&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending nothing as the chromo, nothing as the start position and a valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=&start=&end=1234567
+            With json=1
+                http://localhost:8000/geneList?chromo=&start=&end=1234567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending nothing as the chromo, nothing as the start position and nothing as the end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=&start=&end=
+            With json=1
+                http://localhost:8000/geneList?chromo=&start=&end=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a valid chromo, nothing as the start position and nothing as the end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=4&start=&end=
+            With json=1
+                http://localhost:8000/geneList?chromo=4&start=&end=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending valid chromo, valid start position and nothing as the end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=12&start=123456&end=
+            With json=1
+                http://localhost:8000/geneList?chromo=12&start=123456&end=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending a valid chromo, nothing as the start position and a valid end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=2&start=&end=124567
+            With json=1
+                http://localhost:8000/geneList?chromo=2&start=&end=124567&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
+
+
+    - Sending nothing as the chromo, a valid start position and nothing as the end position:
+        LINK:
+            Without json=1
+                http://localhost:8000/geneList?chromo=&start=123456&end=
+            With json=1
+                http://localhost:8000/geneList?chromo=&start=123456&end=&json=1
+        OUTPUT:
+            Without json=1
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Result</title>
+                </head>
+                <body>
+                    <h1>Final Project 2019</h1>
+
+                    <h4>ERROR: The data introduced is not valid</h4>
+
+                    <a href="/">Main Page</a>
+                </body>
+                </html>
+            With json=1
+                {
+                    "ErrorDescription": "ERROR: The data introduced is not valid"
+                }
