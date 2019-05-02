@@ -1,4 +1,4 @@
-# This is the server for the final project.
+# This is the server for the final project
 import http.server
 import http.client
 import socketserver
