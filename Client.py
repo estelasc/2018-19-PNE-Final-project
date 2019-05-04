@@ -8,7 +8,6 @@ SERVER = 'localhost'
 
 # Connect with the server
 conn = http.client.HTTPConnection(SERVER, PORT)
-headers = {'Content-type': 'text/plain'}
 
 print('MENU')
 print('Available options:')
@@ -142,7 +141,7 @@ while True:
                 break  # Bye-bye
 
     except KeyboardInterrupt:
-        print('Client stopped by the user')
+        print('\n\nClient stopped by the user')
         break
     except ValueError:
         print('The option introduced is not an integer.')
