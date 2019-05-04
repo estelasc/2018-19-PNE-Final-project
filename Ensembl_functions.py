@@ -391,8 +391,8 @@ def get_name_genes(chromo, start, end, json_format):
         if genes == []:
             contents = "Not genes located in that region."
             if json_format:
-                reqError = Error(contents)
-                contents = json.dumps(reqError, cls=UserEncoder, indent=4)
+                no_genes = GenesChromosome(contents)
+                contents = json.dumps(no_genes, cls=UserEncoder, indent=4)
         else:
             contents = "The names of the genes located in the chromosome introduced " \
                        "from the start to end positions are:<br>" + ', '.join(genes)
