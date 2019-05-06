@@ -231,7 +231,7 @@ with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("Stoped by the user")
         httpd.server_close()
     except BrokenPipeError:
-        print('BrokenPipeError')
+        print('')
     except:
         print('An error has been produced')
 
