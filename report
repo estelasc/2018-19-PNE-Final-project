@@ -1975,7 +1975,7 @@ PROVES:
                 </html>
             With json=1
                 {
-                    "ErrorDescription": "Not genes located in that region."
+                    "Genes": "Not genes located in that region."
                 }
 
 
